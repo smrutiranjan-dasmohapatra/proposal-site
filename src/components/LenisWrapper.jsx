@@ -1,4 +1,4 @@
-// src/components/LenisWrapper.jsx
+"use client";
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 
@@ -11,12 +11,11 @@ export default function LenisWrapper({ children }) {
       lerp: 0.1,
     });
 
-    function raf(time) {
+    const animate = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+      requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
 
     return () => lenis.destroy();
   }, []);
