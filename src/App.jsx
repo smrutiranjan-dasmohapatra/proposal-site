@@ -1,12 +1,12 @@
-// src/App.jsx
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import LenisWrapper from "./components/LenisWrapper"; // ✅ import LenisWrapper
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Cards from "./components/Cards";
-import Surprise from "./components/surprise";
+import Surprise from "./components/Surprise";
 import AskSection from "./components/AskSection";
 import FloatingMusic from "./components/FloatingMusic";
 
@@ -16,11 +16,9 @@ export default function App() {
   const appRef = useRef(null);
 
   useEffect(() => {
-    // Wait for React mount
     const timer = setTimeout(() => {
       setReady(true);
 
-      // Fade out loader and fade in app content
       if (loaderRef.current && appRef.current) {
         const tl = gsap.timeline();
 
@@ -40,14 +38,13 @@ export default function App() {
           "-=0.3"
         );
       }
-    }, 300); // wait 300ms for loader to show
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {/* 🛑 FULL-SCREEN LOADER */}
       {!ready && (
         <div
           ref={loaderRef}
@@ -59,14 +56,16 @@ export default function App() {
       )}
 
       {/* 🌟 APP CONTENT */}
-      <div ref={appRef} className="opacity-0">
-        <Navbar />
-        <FloatingMusic />
-        <Hero />
-        <Cards />
-        <Surprise />
-        <AskSection />
-      </div>
+      <LenisWrapper>
+        <div ref={appRef} className="opacity-0">
+          <Navbar />
+          <FloatingMusic />
+          <Hero />
+          <Cards />
+          <Surprise />
+          <AskSection />
+        </div>
+      </LenisWrapper>
     </>
   );
 }

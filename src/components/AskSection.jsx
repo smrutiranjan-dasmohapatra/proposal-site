@@ -28,7 +28,7 @@ export default function AskSection() {
   const handleAlwaysYes = () => window.open("https://wa.me/8249172250?text=ALWAYS YES", "_blank");
 
   return (
-    <section className="flex justify-center items-center bg-white">
+    <section className="flex justify-center w-full items-center bg-white">
       <div ref={containerRef} className="relative pb-24 w-full text-center m-20 space-y-20 overflow-hidden">
         <img ref={svg1Ref} src={Svg1} alt="" className="absolute top-20 left-0 w-16 opacity-0" />
         <img ref={svg2Ref} src={Svg2} alt="" className="absolute top-[120px] right-0 w-20 opacity-0" />
