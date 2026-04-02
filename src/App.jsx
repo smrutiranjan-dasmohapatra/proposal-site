@@ -6,7 +6,7 @@ import LenisWrapper from "./components/LenisWrapper"; // ✅ import LenisWrapper
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Cards from "./components/Cards";
-import Surprise from "./components/Surprise";
+import Surprise from "./components/surprise";
 import AskSection from "./components/AskSection";
 import FloatingMusic from "./components/FloatingMusic";
 
